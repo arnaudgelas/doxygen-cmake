@@ -1,4 +1,4 @@
-project( Doxygen )
+project( DOXYGEN )
 
 cmake_minimum_required( VERSION 2.6 )
 
@@ -31,6 +31,11 @@ set( DOXYGEN_VERSION
 
 configure_file( ${DOXYGEN_SOURCE_DIR}/VERSION.in
   ${DOXYGEN_BINARY_DIR}/VERSION @ONLY IMMEDIATE
+)
+
+include_directories( BEFORE
+  ${DOXYGEN_SOURCE_DIR}/qtools
+  ${DOXYGEN_BINARY_DIR}/qtools
 )
 
 option( BUILD_DOXYWIZARD "Build the doxywizard" ON )

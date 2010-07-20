@@ -1,1 +1,7 @@
 *~
+.makeconfig
+.tmakeconfig
+*.pro
+*Makefile
+*.spec
+BUILD/*
