@@ -36,10 +36,13 @@ configure_file( ${DOXYGEN_SOURCE_DIR}/VERSION.in
 include_directories( BEFORE
   ${DOXYGEN_SOURCE_DIR}/qtools
   ${DOXYGEN_BINARY_DIR}/qtools
+  ${DOXYGEN_SOURCE_DIR}/src
+  ${DOXYGEN_BINARY_DIR}/src
 )
 
 option( BUILD_DOXYWIZARD "Build the doxywizard" ON )
 option( BUILD_DOXYAPP "Build the doxyapp" ON )
 
 add_subdirectory( qtools )
+add_subdirectory( src )
 
