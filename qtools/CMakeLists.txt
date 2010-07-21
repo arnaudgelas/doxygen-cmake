@@ -102,6 +102,7 @@ if( WIN32 )
     qmutex_win32.cpp
     qwaitcondition_win32.cpp  
   )
+
 endif()
 
 qt4_wrap_cpp( QTOOLS_MOC ${QTOOLS_HEADER} )
