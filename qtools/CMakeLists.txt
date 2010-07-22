@@ -108,4 +108,5 @@ endif()
 qt4_wrap_cpp( QTOOLS_MOC ${QTOOLS_HEADER} )
 
 add_library( QTools ${QTOOLS_MOC} ${QTOOLS_SRC} )
+target_link_libraries( QTools ${QT_LIBRARIES} )
 
