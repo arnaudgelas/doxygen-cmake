@@ -224,7 +224,7 @@ set( LIBDOXYGEN_SOURCES
 	dbusxmlscanner.cpp
   )
 
-qt4_wrap_cpp( LIBDOXYGEN_MOC ${LIBDOXYGEN_HEADERS} )
+#qt4_wrap_cpp( LIBDOXYGEN_MOC ${LIBDOXYGEN_HEADERS} )
 
 add_library( Doxygen ${LIBDOXYGEN_SOURCES} )
 
@@ -242,6 +242,8 @@ target_link_libraries( doxygen
   Doxycfg
   QTools
   md5
+  ${ICONV_LIBRARIES}
+  ${CMAKE_THREAD_LIBS_INIT}
   )
 
 

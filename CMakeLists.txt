@@ -7,7 +7,7 @@ set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
   )
 
 # find Qt package
-find_package( Qt4 )
+#find_package( Qt4 )
 
 # find dot (part of GraphViz)
 find_package( Dot )
@@ -23,6 +23,8 @@ find_package( BISON )
 
 # find pThreads
 find_package( Threads )
+
+find_package( Iconv )
 
 # -------------------------------------------------------------------------
 # Creating VERSION file.
@@ -43,7 +45,29 @@ include_directories( BEFORE
   ${DOXYGEN_BINARY_DIR}/libmd5
   ${DOXYGEN_SOURCE_DIR}/src
   ${DOXYGEN_BINARY_DIR}/src
+  ${ICONV_INCLUDE_DIR}
 )
+
+set( CMAKE_RUNTIME_OUTPUT_DIRECTORY
+  ${DOXYGEN_BINARY_DIR}/bin
+)
+
+# all target static libraries will be in ${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}
+set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY
+  ${DOXYGEN_BINARY_DIR}/lib
+)
+
+# all shared libraries will be in ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
+# Note that modules (plugins) are considered as shared libraries
+set( CMAKE_LIBRARY_OUTPUT_DIRECTORY
+   ${DOXYGEN_BINARY_DIR}/lib
+)
+
+LINK_DIRECTORIES(
+      ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
+      ${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}
+      ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
+      )
 
 option( BUILD_DOXYWIZARD "Build the doxywizard" ON )
 option( BUILD_DOXYAPP "Build the doxyapp" ON )
