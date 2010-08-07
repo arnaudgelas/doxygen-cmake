@@ -1,3 +1,34 @@
+# set( CODE_FLEX_SRC
+# code
+# constexp
+# doxytag
+# pycode
+# vhdlscanner
+# commentcnv
+# declinfo
+# fortrancode
+# pyscanner
+# commentscan
+# defargs
+# fortranscanner
+# scanner
+# config
+# doctokenizer
+# pre
+# vhdlcode
+# )
+# 
+# BISON_TARGET(MyParser constexp.y ${CMAKE_CURRENT_BINARY_DIR}/constexp.cpp )
+# foreach( var ${CODE_FLEX_SRC} )
+#   FLEX_TARGET(MyScanner_${var} ${var}.l  ${CMAKE_CURRENT_BIANRY_DIR}/${var}.cpp -P${var}YY)
+# #   ADD_FLEX_BISON_DEPENDENCY(MyScanner_${var} MyParser)
+# endforeach()
+# 
+# 
+# include_directories(${CMAKE_CURRENT_BINARY_DIR})
+
+
+## Do not need to moc these files...
 #set( LIBDOXYGEN_HEADERS
 #  bufstr.h
 #  classdef.h
@@ -222,6 +253,8 @@ set( LIBDOXYGEN_SOURCES
 	xmldocvisitor.cpp
 	xmlgen.cpp
 	dbusxmlscanner.cpp
+#   ${BISON_MyParser_OUTPUTS}
+#   ${FLEX_MyScanner_OUTPUTS}
   )
 
 #qt4_wrap_cpp( LIBDOXYGEN_MOC ${LIBDOXYGEN_HEADERS} )
